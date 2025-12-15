@@ -32,19 +32,10 @@
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
+    <li><a href="#category">Category</a></li>
     <li><a href="#service">Service</a></li>
+    <li><a href="# Contact">Contact</a></li>
   </ul>
-
-  <div class="cart-dropdown">
-    <img src="add-to-cart.png" width="40px" alt="Cart" id="cart-btn">
-    <span id="cart-count">0</span>
-    <div class="cart-content" id="cart-content">
-      <h4>Your Cart</h4>
-      <div id="cart-items"></div>
-      <h3 id="cart-total">Total: ₹0</h3>
-      <button id="checkout-btn">Checkout</button>
-    </div>
   </div>
 </nav>
 
@@ -61,10 +52,60 @@
   </div>
 </section>
 
-<!-- Products Section -->
-<section id="products">
-  <h2><center>Our category</center></h2>
-  <div class="product-grid" id="product-grid"></div>
+<!-- Category Section -->
+<section id="category">
+  <h2><center>Category</center></h2>
+  <div class="categories-container">
+    <div class="category-card">
+      <img src="Men's Shirts.jpeg" alt="Shirt">
+      <h3>Men's All Shirt</h3>
+      <a href="category-shirt.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Men's Paints.jpg" alt="Pant">
+      <h3> Men's Pant</h3>
+      <a href="category-pant.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Women Blouse.jpg" alt="Blouse">
+      <h3> Women's Blouse</h3>
+      <a href="category-blouse.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Kids Unifrom.jpg" alt="Kids">
+      <h3>All Kids Collection </h3>
+      <a href="category-kids.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Woman Suits.jpg" alt="Suit">
+      <h3>Woman's Suit</h3>
+      <a href="category-suit.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Sweing Tools.jpg" alt="Sewing Tools">
+      <h3> All Sewing Tools</h3>
+      <a href="category-tools.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Neharu Jacket.jpeg" alt="Jacket">
+      <h3>Men's Jacket</h3>
+      <a href="category-jacket.html"><button>View All</button></a>
+    </div>
+
+    <div class="category-card">
+      <img src="Short Kurta.jpg" alt="Kurta">
+      <h3>Men's Kurta</h3>
+      <a href="category-kurta.html"><button>View All</button></a>
+    </div>
+  </div>
+</section>
+
 </section>
 <!-- Service Section -->
 <section id="service">
@@ -114,77 +155,50 @@
 </section>
 
 
-<!-- About Section -->
-<section id="about">
-  <h2><center>About Us</center></h2>
-  <div class="about-content">
-    <img src="Umesh.jpeg" alt="Owner Photo" class="owner-photo">
-    <div class="owner-details">
-      <h3>Umesh Prajapati - Owner (25 years Experience)</h3>
-      <details>
-        Tiger Top Tailor is your one-stop solution for custom tailoring, stitching, and more. Serving customers with love and precision since 2025. But My Shop Journey is 2001 to Provide Service to Offline. Internship Provide as a fresher of 3 Weeks. Free trial for 1 Week and then charge in 2 Weeks.
-      </details>
     </div>
   </div>
 </section>
 
-<!-- Product Modal -->
-<div id="product-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img id="modal-img" src="" alt="Product Image">
-    <h2 id="modal-name"></h2>
-    <p id="modal-desc"></p>
-    <p id="modal-price"></p>
-    <p id="modal-measurement"></p>
+<!-- About Section -->
+<section id="about">
+  <h2><center>About Us</center></h2>
+  <div class="about-content">
+    
+    <!-- Left: Photo + Name -->
+    <div class="owner-photo-section">
+      <img src="Umesh.jpeg" alt="Owner Photo" class="owner-photo">
+      <h3>Umesh Prajapati<br><span class="experience">25 Years Experience</span></h3>
+    </div>
+
+    <!-- Right: Paragraph Details -->
+    <div class="owner-details">
+      <p>
+        Tiger Top Tailor is a premier tailoring shop dedicated to crafting perfect garments for every customer. Our journey started in 2001 with a small offline shop, serving local clients with love and precision. We specialize in custom stitching for men, women, and kids, combining style with comfort. Each garment is tailored to perfection, ensuring quality fabric handling and accurate measurements. Our team provides expert guidance on fabrics, designs, and patterns to bring your ideas to life. We also offer sewing tools, training sessions, and repair services to support your sewing journey. Customer satisfaction is at the heart of our operations, with personalized attention for every order. Timely delivery and professional finishing are our promises to each client. With 25 years of experience, Umesh Prajapati leads the team to maintain high standards consistently. We continue to innovate, learn, and adapt to modern trends while honoring traditional tailoring techniques.
+      </p>
+    </div>
+    <!-- Map -->
+   <!-- Map Section -->
+    <div class="owner-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d298.385122321701!2d84.40015438743201!3d25.599430443092558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39928311718d3f7b%3A0xd2366b8c0ceddcd9!2sTiger%20Top%20Tailors!5e0!3m2!1sen!2sin!4v1765816088614!5m2!1sen!2sin" 
+        width="100%" 
+        height="250" 
+        style="border:0; border-radius:12px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="text-align:center; margin-top:6px;">
+        <a href="https://www.google.com/maps/place/Tiger+Top+Tailors/@25.5994304,84.4001544,17z" 
+           target="_blank" 
+           style="color:#ff9800; text-decoration:none; font-weight:500;">
+          🔎 View Exact Location on Google Maps
+        </a>
+      </p>
+    </div>
+
   </div>
-</div>
-
-<!-- Payment Modal -->
-<div id="payment-modal" class="modal">
-  <div class="modal-content checkout-box">
-    <span class="close-btn-pay">&times;</span>
-    <h2>Checkout</h2>
-
-    <div class="checkout-cart" id="payment-cart"></div>
-    <h3 id="payment-total">Total: ₹0</h3>
-
-    <form id="payment-form">
-      <label>Customer Name</label>
-      <input type="text" id="cust-name" required>
-
-      <label>Phone Number</label>
-      <input type="text" id="cust-phone" maxlength="10" required>
-
-      <label>Full Address</label>
-      <textarea id="cust-address" rows="3" required></textarea>
-
-      <label>Payment Method</label>
-      <div class="payment-options">
-  <label class="pay-option">
-    <input type="radio" name="pay-method" value="Cash on Delivery" checked> Cash on Delivery
-  </label>
-
-  <label class="pay-option">
-    <input type="radio" name="pay-method" value="Card" onclick="showPayInput('card')"> Debit / Credit Card
-    <input type="text" id="card-number" class="hidden-pay-input" placeholder="Card Number">
-  </label>
-
-  <label class="pay-option">
-    <input type="radio" name="pay-method" value="UPI" onclick="showPayInput('upi')"> UPI Payment
-    <input type="text" id="upi-id" class="hidden-pay-input" placeholder="UPI ID">
-  </label>
-
-  <label class="pay-option">
-    <input type="radio" name="pay-method" value="QR" onclick="showPayInput('qr')"> Pay via QR
-    <img src="scanner.jpeg" class="qr-img hidden-pay-input">
-  </label>
-</div>
-
-      <button type="submit" class="place-order-btn">Place Order</button>
-    </form>
-  </div>
-</div>
+</section>
 
 <!-- Footer -->
 <footer>
@@ -196,38 +210,6 @@
   </p>
   <p>© 2025 Tiger Top Tailor</p>
 </footer>
-
-<!-- ====== USER LOGIN/SIGNUP + DASHBOARD ====== -->
-<!-- Signup/Login Popup -->
-<div id="authPopup" class="login-popup">
-  <div class="login-box">
-    <h2 id="authTitle">Sign Up / Login</h2>
-    <input type="text" id="userName" placeholder="Enter Name">
-    <input type="text" id="userMobile" placeholder="Enter Mobile Number" maxlength="10">
-    <button onclick="sendOtp()">Send OTP</button>
-
-    <div id="otpSection" style="display:none;">
-      <input type="text" id="otpInput" placeholder="Enter OTP">
-      <button onclick="verifyOtp()">Verify OTP</button>
-    </div>
-  </div>
-</div>
-
-<!-- Dashboard Sidebar -->
-<div id="userDashboard" class="user-sidebar">
-  <span class="closeSidebar" onclick="toggleDashboard()">×</span>
-  <h2 id="dashboardName"></h2>
-  <p><b>Mobile:</b> <span id="dashboardMobile"></span></p>
-  <label>Address:</label>
-  <textarea id="dashboardAddress" placeholder="Enter your address..." oninput="saveDashboardAddress()"></textarea>
-  
-  <h3>Order History</h3>
-  <div id="dashboardOrders"></div>
-  <p><b>Total Orders:</b> <span id="dashboardTotalOrders">0</span></p>
-  <p><b>Total Spent:</b> ₹<span id="dashboardTotalSpent">0</span></p>
-
-  <button class="logout-btn" onclick="logoutDashboard()">Logout</button>
-</div>
 
 <script src="script.js"></script>
 </body>
