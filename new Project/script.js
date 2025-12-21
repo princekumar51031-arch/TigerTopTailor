@@ -1,5 +1,5 @@
 /* ====== TYPEWRITER ====== */
-const welcomeText = "Welcome to Tiger Top Tailor Shop";
+const welcomeText = " ";
 let twIndex = 0;
 function typeWriter() {
   if (twIndex < welcomeText.length) {
