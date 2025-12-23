@@ -1,7 +1,11 @@
 /*  this is new */
 
   /* === CONTINUOUS DROP LOOP === */
-
+@media(max-width: 768px) {
+    .slide {
+        font-size: 3.5rem;
+    }
+}
 .slide {
     position: absolute;
     top: 50%;
