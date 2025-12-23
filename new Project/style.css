@@ -55,7 +55,7 @@
 .slide span:nth-child(24) { animation-delay: 2.3s; }
 
 @media (max-width: 768px) {
-    .slide { font-size: 15vw; }
+    .slide { font-size: 5.5rem; }
     @keyframes dropRepeat {
         0%, 100% { transform: translateY(-2em); }
         60% { transform: translateY(0); }
@@ -63,7 +63,7 @@
 }
 
 @media (max-width: 480px) {
-    .slide { font-size: 20vw; }
+    .slide { font-size: 5.5rem; }
     @keyframes dropRepeat {
         0%, 100% { transform: translateY(-1.5em); }
         60% { transform: translateY(0); }
