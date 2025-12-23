@@ -1,6 +1,7 @@
 /*  this is new */
 
   /* === CONTINUOUS DROP LOOP === */
+  
 
 .slide {
     position: absolute;
@@ -183,11 +184,13 @@ nav .logo img{height:55px;}
   background:#ff9800;
   color:white;
   border:none;
-  padding:8px 150px;
+  padding:10px 0;
+  width:100%;
   border-radius:5px;
   cursor:pointer;
   transition:0.3s;
 }
+
 
 .category-card button:hover{
   background:#e68900;
