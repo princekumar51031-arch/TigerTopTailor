@@ -21,9 +21,9 @@
         <option value="all">All</option>
         <option value="shirt">Shirt</option>
         <option value="pant">Pant</option>
-        <option value="Blezer">Blezer</option>
+        <option value="blezer">Blezer</option>
         <option value="blouse">Blouse</option>
-        <option value="Kurta">Kurta</option>
+        <option value="kurta">Kurta</option>
         <option value="kids">Kids</option>
         <option value="suit">Suit</option>
       </select>
@@ -34,9 +34,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="#category">Category</a></li>
     <li><a href="#service">Service</a></li>
-    <li><a href="# Contact">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="javascript:void(0)" id="loginBtn" class="login-btn">Signup / Login</a></li>
   </ul>
-  </div>
 </nav>
 
 <!-- Slider Section -->
@@ -90,59 +90,62 @@
 
 <!-- Category Section -->
 <section id="category">
-  <h2><center>Category</center></h2>
+  <h2 class="category-title">Our Category</h2>
+
   <div class="categories-container">
+
     <div class="category-card">
       <img src="Men's Shirts.jpeg" alt="Shirt">
-      <h3>Men's All Shirt</h3>
-      <a href="category-shirt.html"><button>View All</button></a>
+      <h3>Shirt</h3>
+      <a href="category-shirt.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
       <img src="Men's Paints.jpg" alt="Pant">
-      <h3> Men's Pant</h3>
-      <a href="category-pant.html"><button>View All</button></a>
+      <h3>Pant</h3>
+      <a href="category-pant.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
-      <img src="Women Blousee.jpg" alt="Blouse">
-      <h3> Women's Blouse</h3>
-      <a href="category-blouse.html"><button>View All</button></a>
+      <img src="Women Blouse.jpg" alt="Blouse">
+      <h3>Blouse</h3>
+      <a href="category-blouse.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
       <img src="Kids Unifrom.jpg" alt="Kids">
-      <h3>All Kids Collection </h3>
-      <a href="category-kids.html"><button>View All</button></a>
+      <h3>Kids</h3>
+      <a href="category-kids.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
       <img src="Woman Suits.jpg" alt="Suit">
-      <h3>Woman's Suit</h3>
-      <a href="category-suit.html"><button>View All</button></a>
+      <h3>Suit</h3>
+      <a href="category-suit.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
-      <img src="Sweing Tools.jpg" alt="Sewing Tools">
-      <h3> All Sewing Tools</h3>
-      <a href="category-tools.html"><button>View All</button></a>
+      <img src="Sweing Tools.jpg" alt="Tools">
+      <h3>Sewing Tools</h3>
+      <a href="category-tools.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
       <img src="Neharu Jacket.jpeg" alt="Jacket">
-      <h3>Men's Jacket</h3>
-      <a href="category-jacket.html"><button>View All</button></a>
+      <h3>Jacket</h3>
+      <a href="category-jacket.html" class="view-btn">View All</a>
     </div>
 
     <div class="category-card">
       <img src="Short Kurta.jpg" alt="Kurta">
-      <h3>Men's Kurta</h3>
-      <a href="category-kurta.html"><button>View All</button></a>
+      <h3>Kurta</h3>
+      <a href="category-kurta.html" class="view-btn">View All</a>
     </div>
+
   </div>
 </section>
 
-</section>
+
 <!-- Service Section -->
 <section id="service">
   <h2><center>Our Services</center></h2>
@@ -190,49 +193,49 @@
   </div>
 </section>
 
+<!-- Login / Signup Modal -->
+<div id="authModal" class="auth-modal">
+  <div class="auth-box">
+    <span class="close-btn" id="closeAuth">&times;</span>
+    <h2>Login / Signup</h2>
 
+    <input type="text" id="name" placeholder="Enter Your Name">
+    <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10">
+    <button id="sendOtpBtn">Send OTP</button>
+
+    <div id="otpSection" class="hidden">
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <button id="verifyOtpBtn">Submit</button>
+      <button id="resendOtpBtn">Resend OTP</button>
     </div>
+
+    <p class="auth-msg" id="authMsg"></p>
   </div>
-</section>
+</div>
 
 <!-- About Section -->
 <section id="about">
   <h2><center>About Us</center></h2>
   <div class="about-content">
-    
-    <!-- Left: Photo + Name -->
     <div class="owner-photo-section">
       <img src="Umesh.jpeg" alt="Owner Photo" class="owner-photo">
       <h3>Umesh Prajapati<br><span class="experience">25 Years Experience</span></h3>
     </div>
-
-    <!-- Right: Paragraph Details -->
     <div class="owner-details">
       <p>
         Tiger Top Tailor is a premier tailoring shop dedicated to crafting perfect garments for every customer. Our journey started in 2001 with a small offline shop, serving local clients with love and precision. We specialize in custom stitching for men, women, and kids, combining style with comfort. Each garment is tailored to perfection, ensuring quality fabric handling and accurate measurements. Our team provides expert guidance on fabrics, designs, and patterns to bring your ideas to life. We also offer sewing tools, training sessions, and repair services to support your sewing journey. Customer satisfaction is at the heart of our operations, with personalized attention for every order. Timely delivery and professional finishing are our promises to each client. With 25 years of experience, Umesh Prajapati leads the team to maintain high standards consistently. We continue to innovate, learn, and adapt to modern trends while honoring traditional tailoring techniques.
       </p>
     </div>
-    <!-- Map -->
-   <!-- Map Section -->
     <div class="owner-map">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d298.385122321701!2d84.40015438743201!3d25.599430443092558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39928311718d3f7b%3A0xd2366b8c0ceddcd9!2sTiger%20Top%20Tailors!5e0!3m2!1sen!2sin!4v1765816088614!5m2!1sen!2sin" 
-        width="100%" 
-        height="250" 
-        style="border:0; border-radius:12px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+        width="100%" height="250" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
       <p style="text-align:center; margin-top:6px;">
-        <a href="https://www.google.com/maps/place/Tiger+Top+Tailors/@25.5994304,84.4001544,17z" 
-           target="_blank" 
-           style="color:#ff9800; text-decoration:none; font-weight:500;">
+        <a href="https://www.google.com/maps/place/Tiger+Top+Tailors/@25.5994304,84.4001544,17z" target="_blank" style="color:#ff9800; text-decoration:none; font-weight:500;">
           🔎 View Exact Location on Google Maps
         </a>
       </p>
     </div>
-
   </div>
 </section>
 
