@@ -1,11 +1,7 @@
 /*  this is new */
 
   /* === CONTINUOUS DROP LOOP === */
-@media(max-width: 768px) {
-    .slide {
-        font-size: 3.5rem;
-    }
-}
+
 .slide {
     position: absolute;
     top: 50%;
@@ -58,6 +54,21 @@
 .slide span:nth-child(23) { animation-delay: 2.2s; }
 .slide span:nth-child(24) { animation-delay: 2.3s; }
 
+@media (max-width: 768px) {
+    .slide { font-size: 15vw; }
+    @keyframes dropRepeat {
+        0%, 100% { transform: translateY(-2em); }
+        60% { transform: translateY(0); }
+    }
+}
+
+@media (max-width: 480px) {
+    .slide { font-size: 20vw; }
+    @keyframes dropRepeat {
+        0%, 100% { transform: translateY(-1.5em); }
+        60% { transform: translateY(0); }
+    }
+}
 
  
 /* RESET */
