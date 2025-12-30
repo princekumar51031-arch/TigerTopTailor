@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shirts Collection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{margin:0;font-family:Arial;background:#f1f3f6;}
@@ -15,49 +15,69 @@ header{background:#2874f0;color:#fff;padding:15px;text-align:center;font-size:22
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
-
 .card{
   background:#fff;
-  border-radius:6px;
+  border-radius:8px;
   box-shadow:0 2px 6px rgba(0,0,0,.15);
   padding:15px;
 }
-
 .card img{
   width:100%;
   height:240px;
   object-fit:cover;
-  border-radius:4px;
+  border-radius:6px;
 }
-
-.card h3{font-size:17px;margin:10px 0 5px;}
-.stars{color:#ffb400;font-size:16px;margin-bottom:5px;}
-
+.card h3{font-size:17px;margin:10px 0;}
 .price{font-size:18px;font-weight:bold;}
-.price span{color:green;font-size:14px;}
+.stars{color:#ffb400;}
 
-.btns{display:flex;gap:10px;margin-top:10px;}
+.btns{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
 button{
-  flex:1;padding:10px;border:none;border-radius:4px;
-  color:#fff;font-weight:bold;cursor:pointer;
+  flex:1;
+  padding:10px;
+  border:none;
+  color:#fff;
+  font-size:14px;
+  border-radius:6px;
+  cursor:pointer;
 }
 .order{background:#fb641b;}
 .seen{background:#2874f0;}
 
 /* MODAL */
 .modal{
-  display:none;position:fixed;top:0;left:0;
-  width:100%;height:100%;background:rgba(0,0,0,.6);z-index:10;
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,.6);
+  z-index:1000;
 }
 .modal-box{
-  background:#fff;max-width:900px;margin:40px auto;
-  border-radius:6px;padding:20px;
-  display:grid;grid-template-columns:1fr 1.2fr;gap:20px;
+  background:#fff;
+  max-width:850px;
+  margin:40px auto;
+  padding:20px;
+  border-radius:10px;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:20px;
 }
-.modal-box img{width:100%;}
+.modal-box img{
+  width:100%;
+  border-radius:8px;
+}
 .close{
-  position:absolute;right:30px;top:20px;
-  font-size:30px;color:#fff;cursor:pointer;
+  position:absolute;
+  right:30px;
+  top:20px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -67,156 +87,178 @@ button{
 <header>Shirts Collection</header>
 
 <div class="container">
-
 <div class="products">
 
 <!-- PRODUCT 1 -->
 <div class="card">
-<img src="Shirt/Casual Shirt.jpeg">
-<h3>Casual Cotton Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹699 <span>30% off</span></div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Casual Shirt.jpeg','Casual Cotton Shirt','₹699','Soft cotton shirt for daily wear')">Seen</button>
-</div>
+  <img src="Shirt/Casual Shirt.jpeg">
+  <h3>Casual Cotton Shirt</h3>
+  <div class="stars">★★★★☆</div>
+  <div class="price">₹699</div>
+  <div class="btns">
+    <button class="order" onclick="orderNow(
+      'Shirt/Casual Shirt.jpeg',
+      'Casual Cotton Shirt',
+      699,
+      'Shirt'
+    )">Order Now</button>
+
+    <button class="seen" onclick="openModal(
+      'Shirt/Casual Shirt.jpeg',
+      'Casual Cotton Shirt',
+      '₹699',
+      '★★★★☆',
+      'Soft cotton shirt perfect for daily wear.'
+    )">Seen</button>
+  </div>
 </div>
 
 <!-- PRODUCT 2 -->
 <div class="card">
-<img src="Shirt/Summer Shirts.jpg">
-<h3>Printed Casual Shirt</h3>
-<div class="stars">★★★★★</div>
-<div class="price">₹749</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Summer Shirts.jpg','Printed Casual Shirt','₹749','Stylish printed casual shirt')">Seen</button>
-</div>
-</div>
+  <img src="Shirt/Formal Shirt.jpg">
+  <h3>Formal Office Shirt</h3>
+  <div class="stars">★★★★★</div>
+  <div class="price">₹799</div>
+  <div class="btns">
+    <button class="order" onclick="orderNow(
+      'Shirt/Formal Shirt.jpg',
+      'Formal Office Shirt',
+      799,
+      'Shirt'
+    )">Order Now</button>
 
+    <button class="seen" onclick="openModal(
+      'Shirt/Formal Shirt.jpg',
+      'Formal Office Shirt',
+      '₹799',
+      '★★★★★',
+      'Premium formal shirt for office & meetings.'
+    )">Seen</button>
+  </div>
+</div>
 <!-- PRODUCT 3 -->
 <div class="card">
-<img src="Shirt/Formal Shirt.jpg">
-<h3>Formal Office Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹799</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Formal Shirt.jpg','Formal Office Shirt','₹799','Perfect for office and meetings')">Seen</button>
-</div>
-</div>
+  <img src="Shirt/Utlity shirts.jpg">
+  <h3>Formal Office Shirt</h3>
+  <div class="stars">★★★★</div>
+  <div class="price">₹799</div>
+  <div class="btns">
+    <button class="order" onclick="orderNow(
+      'Shirt/Utlity shirts.jpg',
+      'Formal Office Shirt',
+      799,
+      'Shirt'
+    )">Order Now</button>
 
+    <button class="seen" onclick="openModal(
+      'Shirt/Utlity shirts.jpg',
+      'Formal Office Shirt',
+      '₹799',
+      '★★★★★',
+      'Premium formal shirt for office & meetings.'
+    )">Seen</button>
+  </div>
+</div>
 <!-- PRODUCT 4 -->
 <div class="card">
-<img src="Shirt/Utlity shirts.jpg">
-<h3>Classic White Shirt</h3>
-<div class="stars">★★★★★</div>
-<div class="price">₹849</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Utlity shirts.jpg','Classic White Shirt','₹849','Premium white formal shirt')">Seen</button>
-</div>
-</div>
+  <img src="Shirt/Summer Shirts.jpg">
+  <h3>Formal Office Shirt</h3>
+  <div class="stars">★★★★★</div>
+  <div class="price">₹799</div>
+  <div class="btns">
+    <button class="order" onclick="orderNow(
+      'Shirt/Summer Shirts.jpg',
+      'Formal Office Shirt',
+      799,
+      'Shirt'
+    )">Order Now</button>
 
+    <button class="seen" onclick="openModal(
+      'Shirt/Summer Shirts.jpg',
+      'Formal Office Shirt',
+      '₹799',
+      '★★★★★',
+      'Premium formal shirt for office & meetings.'
+    )">Seen</button>
+  </div>
+</div>
 <!-- PRODUCT 5 -->
 <div class="card">
-<img src="Shirt/121.jpg">
-<h3>Casual Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹899</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Denim Shirt.jpg','Denim Casual Shirt','₹899','Trendy denim shirt')">Seen</button>
-</div>
-</div>
+  <img src="Shirt/121.jpg">
+  <h3>Formal Office Shirt</h3>
+  <div class="stars">★★★★★</div>
+  <div class="price">₹799</div>
+  <div class="btns">
+    <button class="order" onclick="orderNow(
+      'Shirt/121.jpg',
+      'Formal Office Shirt',
+      799,
+      'Shirt'
+    )">Order Now</button>
 
-<!-- PRODUCT 6 -->
-<div class="card">
-<img src="Shirt/Checked Shirt.jpg">
-<h3>Checked Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹729</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Checked Shirt.jpg','Checked Shirt','₹729','Classic check pattern shirt')">Seen</button>
-</div>
-</div>
-
-<!-- PRODUCT 7 -->
-<div class="card">
-<img src="Shirt/Linen Shirt.jpg">
-<h3>Linen Summer Shirt</h3>
-<div class="stars">★★★★★</div>
-<div class="price">₹999</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Linen Shirt.jpg','Linen Summer Shirt','₹999','Breathable linen fabric')">Seen</button>
-</div>
-</div>
-
-<!-- PRODUCT 8 -->
-<div class="card">
-<img src="Shirt/Party Shirt.jpg">
-<h3>Party Wear Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹1099</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Party Shirt.jpg','Party Wear Shirt','₹1099','Perfect party wear look')">Seen</button>
-</div>
-</div>
-
-<!-- PRODUCT 9 -->
-<div class="card">
-<img src="Shirt/Stripped Shirt.jpg">
-<h3>Striped Formal Shirt</h3>
-<div class="stars">★★★★☆</div>
-<div class="price">₹879</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Stripped Shirt.jpg','Striped Formal Shirt','₹879','Elegant striped formal shirt')">Seen</button>
-</div>
-</div>
-
-<!-- PRODUCT 10 -->
-<div class="card">
-<img src="Shirt/Slim Fit Shirt.jpg">
-<h3>Slim Fit Shirt</h3>
-<div class="stars">★★★★★</div>
-<div class="price">₹949</div>
-<div class="btns">
-<button class="order">Order Now</button>
-<button class="seen" onclick="openModal('Shirt/Slim Fit Shirt.jpg','Slim Fit Shirt','₹949','Modern slim fit design')">Seen</button>
-</div>
-</div>
-
+    <button class="seen" onclick="openModal(
+      'Shirt/121.jpg',
+      'Formal Office Shirt',
+      '₹799',
+      '★★★★★',
+      'Premium formal shirt for office & meetings.'
+    )">Seen</button>
+  </div>
 </div>
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div class="modal-box">
-<img id="mImg">
-<div>
-<h2 id="mTitle"></h2>
-<div class="stars">★★★★★</div>
-<h3 id="mPrice"></h3>
-<p id="mDesc"></p>
-<button class="order" style="width:100%;">Order Now</button>
-</div>
-</div>
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-box">
+    <img id="mImg">
+    <div>
+      <h2 id="mTitle"></h2>
+      <div class="stars" id="mRating"></div>
+      <h3 id="mPrice"></h3>
+      <p id="mDesc"></p>
+      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+    </div>
+  </div>
 </div>
 
 <script>
-function openModal(img,title,price,desc){
+let modalProduct = {};
+
+function openModal(img,title,price,rating,desc){
   modal.style.display='block';
-  mImg.src=img;
-  mTitle.innerText=title;
-  mPrice.innerText=price;
-  mDesc.innerText=desc;
+  mImg.src = img;
+  mTitle.innerText = title;
+  mPrice.innerText = price;
+  mRating.innerText = rating;
+  mDesc.innerText = desc;
+
+  modalProduct = {img,title,price:price.replace('₹','')};
 }
-function closeModal(){modal.style.display='none';}
+
+function closeModal(){
+  modal.style.display='none';
+}
+
+function goOrderFromModal(){
+  orderNow(
+    modalProduct.img,
+    modalProduct.title,
+    modalProduct.price,
+    'Shirt'
+  );
+}
+
+function orderNow(img,name,price,category){
+  const url =
+    "order-form.html" +
+    "?img=" + encodeURIComponent(img) +
+    "&name=" + encodeURIComponent(name) +
+    "&price=" + price +
+    "&category=" + category;
+
+  window.location.href = url;
+}
 </script>
 
 </body>
