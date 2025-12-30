@@ -45,16 +45,16 @@
 /* TEXT STYLE */
 .line1{
   display:block;
-  font-size:75px;
-  font-weight:700;
+  font-size:85px;
+  font-weight:800;
   color:#00ffff;
   text-shadow:0 0 6px #000;
 }
 
 .line2{
   display:block;
-  font-size:70px;
-  font-weight:650;
+  font-size:75px;
+  font-weight:750;
   color:#ffeb3b;
   text-shadow:0 0 10px #000;
 }
