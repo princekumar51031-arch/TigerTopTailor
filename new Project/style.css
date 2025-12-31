@@ -71,11 +71,7 @@
 }
 
 
-/* MARQUEE ANIMATION */
-/* @keyframes marqueeMove{
-  0%   { transform:translateX(20%); }
-  100% { transform:translateX(-60%); }
-} */
+
 
 /* MOBILE */
 @media(max-width:768px){
@@ -254,6 +250,16 @@ nav .logo img{height:55px;}
   transition:.3s;
 }
 .step:hover{transform:scale(1.03);}
+.full-desc {
+  display: none;
+}
+
+.more-btn {
+  color: blue;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 
 /* About Section */
 #about{
@@ -376,90 +382,3 @@ footer a{color:#ff9800;}
   .product-card img{height:200px;}
 }
 
-/* AUTH MODAL */
-.login-btn{
-  background:#ff9800;
-  padding:6px 14px;
-  border-radius:6px;
-}
-
-.auth-modal{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:3000;
-}
-
-.auth-box{
-  background:#fff;
-  padding:30px;
-  width:350px;
-  border-radius:12px;
-  text-align:center;
-  position:relative;
-}
-
-.auth-box h2{
-  margin-bottom:20px;
-}
-
-.auth-box input{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:6px;
-  border:1px solid #ccc;
-  font-size:16px;
-}
-
-.auth-box button{
-  width:100%;
-  padding:12px;
-  background:#ff9800;
-  color:white;
-  border:none;
-  border-radius:6px;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.auth-box button:hover{
-  background:#e68900;
-}
-
-.close-btn{
-  position:absolute;
-  right:15px;
-  top:10px;
-  font-size:24px;
-  cursor:pointer;
-}
-
-.hidden{display:none;}
-
-.auth-msg{
-  margin-top:10px;
-  font-size:14px;
-}
-
-#resendOtpBtn{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  background:#555;
-  color:white;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:14px;
-}
-
-#resendOtpBtn:hover{
-  background:#333;
-}
