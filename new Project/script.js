@@ -1,15 +1,3 @@
-/* ====== TYPEWRITER ====== */
-const welcomeText = "";
-let twIndex = 0;
-function typeWriter() {
-  if (twIndex < welcomeText.length) {
-    document.getElementById("welcome-text").innerHTML += welcomeText.charAt(twIndex);
-    twIndex++;
-    setTimeout(typeWriter, 100);
-  }
-}
-typeWriter();
-
 /* ====== SLIDER ====== */
 const slides = document.querySelectorAll(".slides-container .slide");
 let currentSlide = 0;
@@ -22,7 +10,7 @@ setInterval(()=>{
   showSlide(currentSlide);
 },3000);
 
-/* ====== CATEGORY CARDS ====== */
+/* ====== CATEGORY SEARCH/FILTER ====== */
 const categories = [
   {name: "Shirt", image: "Men's Shirts.jpeg", link: "category-shirt.html"},
   {name: "Pant", image: "Men's Paints.jpg", link: "category-pant.html"},
@@ -31,68 +19,84 @@ const categories = [
   {name: "Suit", image: "Woman Suits.jpg", link: "category-suit.html"},
   {name: "Sewing Tools", image: "Sweing Tools.jpg", link: "category-tools.html"},
   {name: "Jacket", image: "Neharu Jacket.jpeg", link: "category-jacket.html"},
-  {name: "Kurta", image: "Short Kurta.jpg", link: "category-kurta.html"},
+  {name: "Kurta", image: "Short Kurta.jpg", link: "category-kurta.html"}
 ];
 
-const productGrid = document.getElementById("product-grid");
-categories.forEach(cat=>{
-  const card = document.createElement("div");
-  card.classList.add("category-card");
-  card.innerHTML = `
-    <img src="${cat.image}" alt="${cat.name}">
-    <h3>${cat.name}</h3>
-    <a href="${cat.link}"><button>View All</button></a>
-  `;
-  productGrid.appendChild(card);
-});
+const searchInput = document.getElementById('search-input');
+const filterSelect = document.getElementById('filter-select');
+const resultsDiv = document.getElementById('results');
 
-const loginBtn = document.getElementById("loginBtn");
-const authModal = document.getElementById("authModal");
-const closeAuth = document.getElementById("closeAuth");
-
-loginBtn.onclick = ()=> authModal.style.display = "flex";
-closeAuth.onclick = ()=> authModal.style.display = "none";
-
-const sendOtpBtn = document.getElementById("sendOtpBtn");
-const verifyOtpBtn = document.getElementById("verifyOtpBtn");
-const resendOtpBtn = document.getElementById("resendOtpBtn");
-const authMsg = document.getElementById("authMsg");
-
-function sendOtp(){
-  const mobile = document.getElementById("mobile").value;
-  const name = document.getElementById("name").value;
-
-  if(!name){ alert("Enter Name"); return; }
-  if(mobile.length !== 10){ alert("Enter valid mobile number"); return; }
-
-  fetch("sendotp.php",{
-    method:"POST",
-    headers:{'Content-Type':'application/x-www-form-urlencoded'},
-    body:`mobile=${mobile}&name=${name}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-    document.getElementById("otpSection").classList.remove("hidden");
-    authMsg.innerText = "OTP Sent Successfully";
+function displayResults(items){
+  resultsDiv.innerHTML = '';
+  if(items.length === 0){
+    resultsDiv.innerHTML = '<p>No results found</p>';
+    return;
+  }
+  items.forEach(item=>{
+    const div = document.createElement('div');
+    div.classList.add('category-card');
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <h3>${item.name}</h3>
+      <a href="${item.link}" class="view-btn">View All</a>
+    `;
+    resultsDiv.appendChild(div);
   });
 }
 
-sendOtpBtn.onclick = sendOtp;
-resendOtpBtn.onclick = sendOtp;
+function filterCategories(){
+  const searchText = searchInput.value.toLowerCase();
+  const filterValue = filterSelect.value.toLowerCase();
 
-verifyOtpBtn.onclick = ()=>{
-  const otp = document.getElementById("otp").value;
-  const mobile = document.getElementById("mobile").value;
-
-  fetch("verifyotp.php",{
-    method:"POST",
-    headers:{'Content-Type':'application/x-www-form-urlencoded'},
-    body:`mobile=${mobile}&otp=${otp}`
-  })
-  .then(res=>res.text())
-  .then(data=>{
-    authMsg.innerText = data;
-    if(data.includes("Success")) setTimeout(()=>authModal.style.display="none",1500);
+  const filtered = categories.filter(cat=>{
+    const matchName = cat.name.toLowerCase().includes(searchText);
+    const matchCategory = filterValue==='all' || cat.name.toLowerCase()===filterValue;
+    return matchName && matchCategory;
   });
-};
+  displayResults(filtered);
+}
 
+searchInput.addEventListener('input', filterCategories);
+filterSelect.addEventListener('change', filterCategories);
+
+// Initial load
+displayResults(categories);
+
+/* ====== SERVICE MORE BUTTON ====== */
+const moreButtons = document.querySelectorAll('.more-btn');
+moreButtons.forEach(button=>{
+  button.addEventListener('click', ()=>{
+    const fullDesc = button.previousElementSibling;
+    if(fullDesc.style.display === 'inline'){
+      fullDesc.style.display = 'none';
+      button.textContent = 'More';
+    } else {
+      fullDesc.style.display = 'inline';
+      button.textContent = 'Less';
+    }
+  });
+});
+// ===== NAVBAR LOGIN NAME LOGIC =====
+document.addEventListener("DOMContentLoaded", () => {
+  const name = localStorage.getItem("ttt_name");
+
+  const loginBtn = document.getElementById("loginBtn");
+  const userNameBox = document.getElementById("userName");
+  const navUserName = document.getElementById("navUserName");
+
+  if(name){
+    loginBtn.style.display = "none";
+    userNameBox.style.display = "block";
+    navUserName.innerText = name;
+  }
+});
+// ===== LOGOUT FUNCTION =====
+document.addEventListener("click", function(e){
+  if(e.target.id === "logoutBtn"){
+    localStorage.removeItem("ttt_name");
+    alert("Logout Successfully");
+    location.reload();
+  }
+});
+
+/* ====== END ====== */ 

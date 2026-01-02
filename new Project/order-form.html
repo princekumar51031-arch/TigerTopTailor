@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tailoring Order Form</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0; padding: 20px;
+}
+.container {
+    max-width: 800px; margin: auto; background: #fff;
+    padding: 25px; border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.container:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+h1,h2,h3 { margin-bottom: 12px; color: #0d47a1; }
+.row { display:flex; flex-wrap:wrap; gap:15px; align-items:center; }
+.field { flex:1; min-width:220px; display:flex; flex-direction:column; }
+label { font-size: 13px; font-weight:600; margin-bottom:6px; }
+input, select, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:14px; transition: 0.3s; }
+input:focus, select:focus, textarea:focus { border-color: #0d47a1; box-shadow: 0 0 5px rgba(13,71,161,0.3); outline:none; }
+.section { background:#f9fbff; border:1px solid #e0e6f0; padding:18px; border-radius:10px; margin-top:20px; transition: 0.3s; }
+.section:hover { transform: translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+.radio-group { display:flex; flex-wrap:wrap; gap:15px; font-size:14px; }
+.radio-group label { background:#fff; border:1px solid #ddd; padding:8px 12px; border-radius:6px; cursor:pointer; transition: 0.3s; }
+.radio-group label:hover { border-color:#0d47a1; background:#e3f2fd; }
+.hidden { display:none; }
+.submit-btn { width:100%; margin-top:15px; padding:12px; background:#1976d2; color:#fff; border:none; border-radius:8px; font-size:15px; cursor:pointer; transition: 0.3s; }
+.submit-btn:hover { background:#1565c0; }
+#summaryBox { text-align:center; background: linear-gradient(90deg,#0d47a1,#1976d2); color:#fff; border-radius:12px; padding:18px; margin-top:25px; }
+#summaryBox h3,#summaryBox p{ color:#fff; margin:5px 0; }
+.product-btn { padding:12px 20px; border-radius:8px; border:1px solid #0d47a1; background:#fff; color:#0d47a1; cursor:pointer; transition:0.3s; font-weight:600; }
+.product-btn:hover { background:#0d47a1; color:#fff; transform: translateY(-2px); }
+.product-img { max-width:220px; margin-top:12px; border-radius:10px; border:1px solid #ccc; display:block; }
+@media(max-width:600px){ .row{flex-direction:column;} .field{min-width:100%;} .radio-group{flex-direction:column;} }
+@media print{ body{background:#fff;} .submit-btn{display:none;} }
+#paymentCards{
+  gap:15px;
+}
+.pay-card{
+  flex:1;
+  min-width:120px;
+  text-align:center;
+  padding:15px;
+  border:2px solid #ddd;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#f9f9f9;
+  transition:0.3s;
+}
+.pay-card:hover{
+  border-color:#0d6efd;
+  background:#eef4ff;
+}
+.pay-card.active{
+  border-color:#0d6efd;
+  background:#0d6efd;
+  color:#fff;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+    <img src="2945983.png" alt="Logo" style="width:60px;height:60px;border-radius:8px;">
+    <div>
+      <h1 style="margin:0;font-size:20px;">Tiger Top Tailor</h1>
+      <p style="margin:0;font-size:13px;color:#555;">Professional Tailoring Services</p>
+    </div>
+  </div>
+
+  <center><h1>Tailoring Order Form</h1></center>
+
+  <!-- Customer Details -->
+  <h2>Customer Details</h2>
+  <div class="section">
+    <div class="row">
+      <div class="field">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name" autocomplete="off"/>
+      </div>
+      <div class="field">
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" placeholder="10 digit mobile number"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address" rows="3" required placeholder="Enter delivery address"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Selection -->
+  <h2>Selected Product</h2>
+  <div class="section">
+    <img id="productImage" class="product-img hidden" src="" alt="Product Image"/>
+    <h3 id="productName"></h3>
+  </div>
+
+  <!-- Measurement -->
+  <h2>Measurement / Size Details</h2>
+  <div class="section">
+    <div class="row radio-group">
+      <label><input type="radio" name="measure" value="online" checked /> Customer provides measurement online (No extra charge)</label>
+      <label><input type="radio" name="measure" value="home" /> Tailor visits home to take measurement (Extra ₹50)</label>
+    </div>
+    <div class="row hidden" id="onlineMeasureText">
+      <div class="field">
+        <label for="onlineMeasurement">Enter Measurement / Requirements</label>
+        <textarea id="onlineMeasurement" rows="3" placeholder="Enter your measurement / special requirements"></textarea>
+      </div>
+    </div>
+    <div class="row hidden" id="visitDate">
+      <div class="field">
+        <label for="visitDateInput">Select Measurement Date</label>
+        <input type="date" id="visitDateInput" name="visitDate"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delivery -->
+  <h2>Delivery</h2>
+  <div class="section">
+    <div class="row">
+      <div class="field">
+        <label for="deliveryDate">Delivery Date </label>
+        <input type="date" id="deliveryDate" name="deliveryDate" readonly />
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment -->
+  <h2>Payment Method</h2>
+  <div class="row" id="paymentCards">
+    <div class="pay-card active" data-pay="cash">💵<br>Cash</div>
+    <div class="pay-card" data-pay="upi">📱<br>UPI</div>
+    <div class="pay-card" data-pay="paytm">🅿️<br>Paytm</div>
+    <div class="pay-card" data-pay="card">💳<br>Card</div>
+  </div>
+
+  <!-- Payment Inputs -->
+  <div class="row hidden" id="upiBox">
+    <div class="field">
+      <label>UPI / Paytm ID</label>
+      <input type="text" placeholder="example@upi">
+    </div>
+  </div>
+
+  <div class="row hidden" id="cardBox">
+    <div class="field">
+      <label>Card Number</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="field">
+      <label>Expiry</label>
+      <input type="month">
+    </div>
+    <div class="field">
+      <label>CVV</label>
+      <input type="password" maxlength="3">
+    </div>
+  </div>
+
+  <div class="row hidden" id="cashBox">
+    <div class="field">
+      <label>Cash Payment</label>
+      <input type="text" value="Pay cash at delivery" readonly>
+    </div>
+  </div>
+
+  <!-- Order Summary -->
+  <div class="section" id="summaryBox">
+    <h3>📋 Order Summary</h3>
+    <p>🧵 Base Charges: ₹<span id="basePrice">0</span></p>
+    <p>➕ Extra Charges: ₹<span id="extraPrice">0</span></p>
+    <p style="font-size:16px;">💰 <b>Total Payable: ₹<span id="totalPrice">0</span></b></p>
+  </div>
+
+  <button class="submit-btn" id="submitBtn">Submit Order</button>
+  <button class="submit-btn" onclick="window.print()" style="background:#2e7d32;">🖨️ Print / Save PDF</button>
+
+  <div id="successPopup" class="hidden" style="text-align:center;padding:20px;">
+    <h3>✅ Order Submitted Successfully</h3>
+    <p style="font-size:13px;color:#444;">Thank you! Your tailoring order has been received.</p>
+  </div>
+</div>
+
+<script>
+// On load: get product info from URL
+const params = new URLSearchParams(window.location.search);
+const img = params.get("img");
+const name = params.get("name");
+const price = params.get("price");
+
+const productImage = document.getElementById("productImage");
+const productName = document.getElementById("productName");
+const basePriceEl = document.getElementById('basePrice');
+const totalPriceEl = document.getElementById('totalPrice');
+const extraPriceEl = document.getElementById('extraPrice');
+
+let basePrice = price ? parseInt(price) : 0;
+let extraCharge = 0;
+
+if(img){
+  productImage.src = img;
+  productImage.classList.remove("hidden");
+}
+if(name) productName.innerText = name;
+if(price){
+  basePriceEl.innerText = basePrice;
+  totalPriceEl.innerText = basePrice;
+}
+
+// Measurement
+const measureRadios = document.querySelectorAll('input[name="measure"]');
+const visitDate = document.getElementById('visitDate');
+const visitInput = document.getElementById('visitDateInput');
+const onlineText = document.getElementById('onlineMeasureText');
+
+measureRadios.forEach(r=>{
+  r.addEventListener('change', ()=>{
+    extraCharge = 0;
+    visitDate.classList.add('hidden');
+    onlineText.classList.add('hidden');
+    if(r.value==='home'){ 
+      extraCharge = 50; 
+      visitDate.classList.remove('hidden');
+    } else if(r.value==='online') {
+      onlineText.classList.remove('hidden');
+    }
+    updatePrice();
+    updateDeliveryDate();
+  });
+});
+
+// Delivery date
+const deliveryDate = document.getElementById('deliveryDate');
+const today = new Date().toISOString().split('T')[0];
+visitInput.setAttribute('min', today);
+visitInput.addEventListener('change', updateDeliveryDate);
+
+function updateDeliveryDate(){
+  let d;
+  const measureType = document.querySelector('input[name="measure"]:checked').value;
+  if(measureType==='home' && visitInput.value){
+    d = new Date(visitInput.value);
+  } else if(measureType==='online'){
+    d = new Date();
+  } else return;
+  d.setDate(d.getDate()+7);
+  deliveryDate.value = d.toISOString().split('T')[0];
+}
+
+function updatePrice(){
+  basePriceEl.innerText = basePrice;
+  extraPriceEl.innerText = extraCharge;
+  totalPriceEl.innerText = basePrice + extraCharge;
+}
+
+// Payment cards
+const payCards = document.querySelectorAll(".pay-card");
+const upiBox = document.getElementById("upiBox");
+const cardBox = document.getElementById("cardBox");
+const cashBox = document.getElementById("cashBox");
+
+payCards.forEach(card=>{
+  card.addEventListener("click",()=>{
+    payCards.forEach(c=>c.classList.remove("active"));
+    card.classList.add("active");
+
+    upiBox.classList.add("hidden");
+    cardBox.classList.add("hidden");
+    cashBox.classList.add("hidden");
+
+    const type = card.dataset.pay;
+    if(type==="upi" || type==="paytm") upiBox.classList.remove("hidden");
+    if(type==="card") cardBox.classList.remove("hidden");
+    if(type==="cash") cashBox.classList.remove("hidden");
+  });
+});
+
+// Submit
+const submitBtn = document.getElementById('submitBtn');
+const successPopup = document.getElementById('successPopup');
+
+submitBtn.addEventListener('click', ()=>{
+  if(!document.getElementById('fullname').value || !document.getElementById('mobile').value || basePrice===0){
+    alert('Please fill all required fields and select a product.');
+    return;
+  }
+  if(document.querySelector('input[name="measure"]:checked').value==='home' && !visitInput.value){
+    alert('Please select measurement visit date.');
+    return;
+  }
+  successPopup.classList.remove('hidden');
+  submitBtn.classList.add('hidden');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>

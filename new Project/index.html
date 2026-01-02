@@ -16,106 +16,66 @@
   </div>
 
   <div id="search-container">
-      <input type="text" id="search-input" placeholder="Search Product">
-      <select id="filter-select">
-        <option value="all">All</option>
-        <option value="shirt">Shirt</option>
-        <option value="pant">Pant</option>
-        <option value="blezer">Blezer</option>
-        <option value="blouse">Blouse</option>
-        <option value="kurta">Kurta</option>
-        <option value="kids">Kids</option>
-        <option value="suit">Suit</option>
-      </select>
+    <input type="text" id="search-input" placeholder="Search Product">
+    <select id="filter-select">
+      <option value="all">All</option>
+      <option value="shirt">Shirt</option>
+      <option value="pant">Pant</option>
+      <option value="blezer">Blezer</option>
+      <option value="blouse">Blouse</option>
+      <option value="kurta">Kurta</option>
+      <option value="kids">Kids</option>
+      <option value="suit">Suit</option>
+    </select>
   </div>
 
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#category">Category</a></li>
-    <li><a href="#service">Service</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="javascript:void(0)" id="loginBtn" class="login-btn">Signup / Login</a></li>
-  </ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#category">Category</a></li>
+  <li><a href="#service">Service</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li id="loginBtn"><a href="login.html">Login</a></li>
+  <li id="userName" style="display:none; font-weight:600; color:#ff9800; cursor:pointer;">
+  👤 <span id="navUserName"></span>
+  |
+  <span id="logoutBtn" style="color:#fff; font-size:14px;">Logout</span>
+</li>
+
+</ul>
 </nav>
 
+<<<<<<< HEAD
+=======
+<!-- Home Section -->
+<section id="home"></section>
+
+>>>>>>> 3423668d30cea9dc83c1f163e24b337a2e4ddae9
 <!-- Slider Section -->
 <div class="slider">
-
-  <!-- Welcome Text -->
   <div class="welcome-marquee">
     <div class="marquee-text">
       <span class="line1">Welcome To Tiger</span><br>
       <span class="line2">Top Tailor</span>
     </div>
   </div>
-
-  <!-- Slides -->
   <div class="slides-container">
-    <!-- <img src="" class="slide active"> -->
-    <img src="slide2.jpg" class="slide">
+    <img src="slide2.jpg" class="slide active">
     <img src="slide3.jpg" class="slide">
     <img src="slide4.jpg" class="slide">
   </div>
-
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3423668d30cea9dc83c1f163e24b337a2e4ddae9
 <!-- Category Section -->
 <section id="category">
   <h2 class="category-title">Our Category</h2>
-
-  <div class="categories-container">
-
-    <div class="category-card">
-      <img src="Men's Shirts.jpeg" alt="Shirt">
-      <h3>Shirt</h3>
-      <a href="category-shirt.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Men's Paints.jpg" alt="Pant">
-      <h3>Pant</h3>
-      <a href="category-pant.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Women Blouse.jpg" alt="Blouse">
-      <h3>Blouse</h3>
-      <a href="category-blouse.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Kids Unifrom.jpg" alt="Kids">
-      <h3>Kids</h3>
-      <a href="category-kids.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Woman Suits.jpg" alt="Suit">
-      <h3>Suit</h3>
-      <a href="category-suit.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Sweing Tools.jpg" alt="Tools">
-      <h3>Sewing Tools</h3>
-      <a href="category-tools.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Neharu Jacket.jpeg" alt="Jacket">
-      <h3>Jacket</h3>
-      <a href="category-jacket.html" class="view-btn">View All</a>
-    </div>
-
-    <div class="category-card">
-      <img src="Short Kurta.jpg" alt="Kurta">
-      <h3>Kurta</h3>
-      <a href="category-kurta.html" class="view-btn">View All</a>
-    </div>
-
+  <div id="results" class="categories-container">
+    <!-- Dynamic category cards appear here -->
   </div>
 </section>
-
 
 <!-- Service Section -->
 <section id="service">
@@ -164,26 +124,6 @@
   </div>
 </section>
 
-<!-- Login / Signup Modal -->
-<div id="authModal" class="auth-modal">
-  <div class="auth-box">
-    <span class="close-btn" id="closeAuth">&times;</span>
-    <h2>Login / Signup</h2>
-
-    <input type="text" id="name" placeholder="Enter Your Name">
-    <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10">
-    <button id="sendOtpBtn">Send OTP</button>
-
-    <div id="otpSection" class="hidden">
-      <input type="text" id="otp" placeholder="Enter OTP">
-      <button id="verifyOtpBtn">Submit</button>
-      <button id="resendOtpBtn">Resend OTP</button>
-    </div>
-
-    <p class="auth-msg" id="authMsg"></p>
-  </div>
-</div>
-
 <!-- About Section -->
 <section id="about">
   <h2><center>About Us</center></h2>
@@ -211,6 +151,7 @@
 </section>
 
 <!-- Footer -->
+<section id="contact">
 <footer>
   <p>Contact: +91 8809732250 | Email: <a href="mailto:tigertoptailor@gmail.com">tigertoptailor@gmail.com</a></p>
   <p>
@@ -220,6 +161,7 @@
   </p>
   <p>© 2025 Tiger Top Tailor</p>
 </footer>
+</section>
 
 <script src="script.js"></script>
 </body>
