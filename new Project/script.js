@@ -14,7 +14,7 @@ setInterval(()=>{
 const categories = [
   {name: "Shirt", image: "Men's Shirts.jpeg", link: "category-shirt.html"},
   {name: "Pant", image: "Men's Paints.jpg", link: "category-pant.html"},
-  {name: "Blouse", image: "Women Blouse.jpg", link: "category-blouse.html"},
+  {name: "Blouse", image: "Women Blousee.jpg", link: "category-blouse.html"},
   {name: "Kids", image: "Kids Unifrom.jpg", link: "category-kids.html"},
   {name: "Suit", image: "Woman Suits.jpg", link: "category-suit.html"},
   {name: "Sewing Tools", image: "Sweing Tools.jpg", link: "category-tools.html"},
