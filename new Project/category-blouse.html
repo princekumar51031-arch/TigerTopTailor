@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shirts Collection</title>
+<title>Blouse Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -48,7 +48,6 @@ button{
 .order{background:#fb641b;}
 .seen{background:#2874f0;}
 
-/* MODAL */
 .modal{
   display:none;
   position:fixed;
@@ -79,6 +78,14 @@ button{
   color:#fff;
   cursor:pointer;
 }
+.feedback{
+  margin-top:12px;
+  font-size:13px;
+  background:#f7f7f7;
+  padding:10px;
+  border-radius:6px;
+  line-height:1.6;
+}
 </style>
 </head>
 
@@ -94,22 +101,21 @@ button{
   <img src="Women's Blouse/ladies-petticoat.jpg">
   <h3>Ladies Petticoat</h3>
   <div class="stars">★★★★☆</div>
-  <div class="price">₹14
-    9</div>
+  <div class="price">₹149</div>
   <div class="btns">
     <button class="order" onclick="orderNow(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      699,
-      'Shirt'
+      'Women\'s Blouse/ladies-petticoat.jpg',
+      'Ladies Petticoat',
+      149,
+      'Blouse'
     )">Order Now</button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      '₹699',
+      'Women\'s Blouse/ladies-petticoat.jpg',
+      'Ladies Petticoat',
+      '₹149',
       '★★★★☆',
-      'Soft cotton shirt perfect for daily wear.'
+      'Comfortable and well-fitted ladies petticoat designed for reliable support, breathability, and long-lasting daily comfort.'
     )">Seen</button>
   </div>
 </div>
@@ -117,94 +123,99 @@ button{
 <!-- PRODUCT 2 -->
 <div class="card">
   <img src="Women's Blouse/Neckline Squre   Blouse.jpg">
-  <h3>Neckline Squre   Blouse</h3>
+  <h3>Square Neck Blouse</h3>
   <div class="stars">★★★★★</div>
   <div class="price">₹249</div>
   <div class="btns">
     <button class="order" onclick="orderNow(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
+      'Women\'s Blouse/Neckline Squre   Blouse.jpg',
+      'Square Neck Blouse',
+      249,
+      'Blouse'
     )">Order Now</button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      '₹799',
+      'Women\'s Blouse/Neckline Squre   Blouse.jpg',
+      'Square Neck Blouse',
+      '₹249',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Elegant square neck blouse offering a refined ethnic appearance, clean stitching, and a flattering silhouette suitable for multiple occasions.'
     )">Seen</button>
   </div>
 </div>
+
 <!-- PRODUCT 3 -->
 <div class="card">
   <img src="Women's Blouse/Neckline V-neck.jpg">
-  <h3>Neckline V-neck</h3>
+  <h3>V-Neck Blouse</h3>
   <div class="stars">★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹299</div>
   <div class="btns">
     <button class="order" onclick="orderNow(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
+      'Women\'s Blouse/Neckline V-neck.jpg',
+      'V-Neck Blouse',
+      299,
+      'Blouse'
     )">Order Now</button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Women\'s Blouse/Neckline V-neck.jpg',
+      'V-Neck Blouse',
+      '₹299',
+      '★★★★',
+      'Classic V-neck blouse crafted for graceful styling, everyday comfort, and versatile pairing with sarees and ethnic outfits.'
     )">Seen</button>
   </div>
 </div>
+
 <!-- PRODUCT 4 -->
 <div class="card">
   <img src="Women's Blouse/Sleeves Blouse.jpg">
   <h3>Sleeves Blouse</h3>
   <div class="stars">★★★★★</div>
-  <div class="price">₹9</div>
+  <div class="price">₹349</div>
   <div class="btns">
     <button class="order" onclick="orderNow(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
+      'Women\'s Blouse/Sleeves Blouse.jpg',
+      'Sleeves Blouse',
+      349,
+      'Blouse'
     )">Order Now</button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
+      'Women\'s Blouse/Sleeves Blouse.jpg',
+      'Sleeves Blouse',
+      '₹349',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Well-tailored sleeves blouse featuring durable stitching, enhanced comfort, and a polished traditional look ideal for extended wear.'
     )">Seen</button>
   </div>
 </div>
+
 <!-- PRODUCT 5 -->
 <div class="card">
   <img src="Women's Blouse/Western Blouse.jpg">
   <h3>Western Blouse</h3>
   <div class="stars">★★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹399</div>
   <div class="btns">
     <button class="order" onclick="orderNow(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
+      'Women\'s Blouse/Western Blouse.jpg',
+      'Western Blouse',
+      399,
+      'Blouse'
     )">Order Now</button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      '₹799',
+      'Women\'s Blouse/Western Blouse.jpg',
+      'Western Blouse',
+      '₹399',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Contemporary western-style blouse designed for modern fashion preferences, combining sleek design with day-long comfort.'
     )">Seen</button>
   </div>
+</div>
+
 </div>
 </div>
 
@@ -218,7 +229,17 @@ button{
       <div class="stars" id="mRating"></div>
       <h3 id="mPrice"></h3>
       <p id="mDesc"></p>
-      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+
+      <div class="feedback">
+        <b>Customer Insights</b><br>
+        ✔ Appreciated for comfort & stitching<br>
+        ✔ Preferred for versatile styling<br>
+        ✔ Suitable for daily & festive wear
+      </div>
+
+      <button class="order" style="width:100%;margin-top:10px;" onclick="goOrderFromModal()">
+        Proceed to Order
+      </button>
     </div>
   </div>
 </div>
@@ -242,12 +263,7 @@ function closeModal(){
 }
 
 function goOrderFromModal(){
-  orderNow(
-    modalProduct.img,
-    modalProduct.title,
-    modalProduct.price,
-    'Shirt'
-  );
+  orderNow(modalProduct.img, modalProduct.title, modalProduct.price, 'Blouse');
 }
 
 function orderNow(img,name,price,category){

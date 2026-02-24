@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shirts Collection</title>
+<title>Suit Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -48,7 +48,6 @@ button{
 .order{background:#fb641b;}
 .seen{background:#2874f0;}
 
-/* MODAL */
 .modal{
   display:none;
   position:fixed;
@@ -79,6 +78,14 @@ button{
   color:#fff;
   cursor:pointer;
 }
+.feedback{
+  margin-top:12px;
+  font-size:13px;
+  background:#f7f7f7;
+  padding:10px;
+  border-radius:6px;
+  line-height:1.6;
+}
 </style>
 </head>
 
@@ -89,121 +96,81 @@ button{
 <div class="container">
 <div class="products">
 
-<!-- PRODUCT 1 -->
 <div class="card">
   <img src="Woman's Suits/Afgani Suit.jpg">
   <h3>Afgani Suit</h3>
   <div class="stars">★★★★☆</div>
   <div class="price">₹699</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      699,
-      'Shirt'
-    )">Order Now</button>
-
-    <button class="seen" onclick="openModal(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      '₹699',
-      '★★★★☆',
-      'Soft cotton shirt perfect for daily wear.'
-    )">Seen</button>
+    <button class="order" onclick="orderNow('Woman\'s Suits/Afgani Suit.jpg','Afgani Suit',699,'Suit')">
+      Order Now
+    </button>
+    <button class="seen" onclick="openModal('Woman\'s Suits/Afgani Suit.jpg','Afgani Suit','₹699','★★★★☆','Stylish Afgani suit offering a graceful ethnic appearance with relaxed comfort.')">
+      Seen
+    </button>
   </div>
 </div>
 
-<!-- PRODUCT 2 -->
 <div class="card">
   <img src="Woman's Suits/Anarkali Suit.jpg">
   <h3>Anarkali Suit</h3>
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
-
-    <button class="seen" onclick="openModal(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+    <button class="order" onclick="orderNow('Woman\'s Suits/Anarkali Suit.jpg','Anarkali Suit',799,'Suit')">
+      Order Now
+    </button>
+    <button class="seen" onclick="openModal('Woman\'s Suits/Anarkali Suit.jpg','Anarkali Suit','₹799','★★★★★','Elegant Anarkali suit designed for festive and special occasions.')">
+      Seen
+    </button>
   </div>
 </div>
-<!-- PRODUCT 3 -->
+
 <div class="card">
   <img src="Woman's Suits/Churidar Suit.jpg">
   <h3>Churidar Suit</h3>
   <div class="stars">★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹749</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
-
-    <button class="seen" onclick="openModal(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+    <button class="order" onclick="orderNow('Woman\'s Suits/Churidar Suit.jpg','Churidar Suit',749,'Suit')">
+      Order Now
+    </button>
+    <button class="seen" onclick="openModal('Woman\'s Suits/Churidar Suit.jpg','Churidar Suit','₹749','★★★★','Classic churidar suit combining traditional styling with comfort.')">
+      Seen
+    </button>
   </div>
 </div>
-<!-- PRODUCT 4 -->
+
 <div class="card">
   <img src="Woman's Suits/Nayra Suit.jpg">
   <h3>Nayra Suit</h3>
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
-
-    <button class="seen" onclick="openModal(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+    <button class="order" onclick="orderNow('Woman\'s Suits/Nayra Suit.jpg','Nayra Suit',799,'Suit')">
+      Order Now
+    </button>
+    <button class="seen" onclick="openModal('Woman\'s Suits/Nayra Suit.jpg','Nayra Suit','₹799','★★★★★','Modern Nayra suit offering a trendy and refined ethnic look.')">
+      Seen
+    </button>
   </div>
 </div>
-<!-- PRODUCT 5 -->
+
 <div class="card">
   <img src="Woman's Suits/Palazzo Suit.jpg">
   <h3>Palazzo Suit</h3>
   <div class="stars">★★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹849</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
-
-    <button class="seen" onclick="openModal(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+    <button class="order" onclick="orderNow('Woman\'s Suits/Palazzo Suit.jpg','Palazzo Suit',849,'Suit')">
+      Order Now
+    </button>
+    <button class="seen" onclick="openModal('Woman\'s Suits/Palazzo Suit.jpg','Palazzo Suit','₹849','★★★★★','Comfortable palazzo suit designed for modern elegance and ease.')">
+      Seen
+    </button>
   </div>
+</div>
+
 </div>
 </div>
 
@@ -217,7 +184,17 @@ button{
       <div class="stars" id="mRating"></div>
       <h3 id="mPrice"></h3>
       <p id="mDesc"></p>
-      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+
+      <div class="feedback">
+        <b>Customer Insights</b><br>
+        ✔ Popular for festive and traditional wear<br>
+        ✔ Appreciated for elegant design & comfort<br>
+        ✔ Suitable for occasions and celebrations
+      </div>
+
+      <button class="order" style="width:100%;margin-top:10px;" onclick="goOrderFromModal()">
+        Proceed to Order
+      </button>
     </div>
   </div>
 </div>
@@ -241,12 +218,7 @@ function closeModal(){
 }
 
 function goOrderFromModal(){
-  orderNow(
-    modalProduct.img,
-    modalProduct.title,
-    modalProduct.price,
-    'Shirt'
-  );
+  orderNow(modalProduct.img, modalProduct.title, modalProduct.price, 'Suit');
 }
 
 function orderNow(img,name,price,category){

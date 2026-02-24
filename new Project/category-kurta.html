@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shirts Collection</title>
+<title>Kurta Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -79,6 +79,14 @@ button{
   color:#fff;
   cursor:pointer;
 }
+.feedback{
+  margin-top:12px;
+  font-size:13px;
+  background:#f7f7f7;
+  padding:10px;
+  border-radius:6px;
+  line-height:1.6;
+}
 </style>
 </head>
 
@@ -96,20 +104,17 @@ button{
   <div class="stars">★★★★☆</div>
   <div class="price">₹699</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      699,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Kurta/A-line Kurta.jpg','A-line Kurta',699,'Kurta')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
+      'Kurta/A-line Kurta.jpg',
+      'A-line Kurta',
       '₹699',
       '★★★★☆',
-      'Soft cotton shirt perfect for daily wear.'
-    )">Seen</button>
+      'Elegantly tailored A-line kurta offering a flattering silhouette and superior wearing comfort.'
+    )">View Details</button>
   </div>
 </div>
 
@@ -120,45 +125,41 @@ button{
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Kurta/Asymmetric Kurta.jpg','Asymmetric Kurta',799,'Kurta')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
+      'Kurta/Asymmetric Kurta.jpg',
+      'Asymmetric Kurta',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Modern asymmetric design delivering a contemporary ethnic look with refined styling.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 3 -->
 <div class="card">
   <img src="Kurta/Muktsari Kurta.jpg">
   <h3>Muktsari Kurta</h3>
-  <div class="stars">★★★★</div>
+  <div class="stars">★★★★☆</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Kurta/Muktsari Kurta.jpg','Muktsari Kurta',799,'Kurta')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
+      'Kurta/Muktsari Kurta.jpg',
+      'Muktsari Kurta',
       '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      '★★★★☆',
+      'Traditional-inspired Muktsari kurta combining cultural aesthetics with everyday comfort.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 4 -->
 <div class="card">
   <img src="Kurta/Short Kurta.jpg">
@@ -166,45 +167,41 @@ button{
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Kurta/Short Kurta.jpg','Short Kurta',799,'Kurta')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
+      'Kurta/Short Kurta.jpg',
+      'Short Kurta',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Compact and stylish short kurta designed for casual outings and versatile pairing.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 5 -->
 <div class="card">
   <img src="Kurta/straight kurta.jpg">
-  <h3>straight kurta</h3>
+  <h3>Straight Kurta</h3>
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Kurta/straight kurta.jpg','Straight Kurta',799,'Kurta')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
+      'Kurta/straight kurta.jpg',
+      'Straight Kurta',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Classic straight-cut kurta offering a clean ethnic appearance with exceptional comfort.'
+    )">View Details</button>
   </div>
 </div>
+
 </div>
 
 <!-- MODAL -->
@@ -217,7 +214,17 @@ button{
       <div class="stars" id="mRating"></div>
       <h3 id="mPrice"></h3>
       <p id="mDesc"></p>
-      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+
+      <div class="feedback">
+        <b>Customer Insights</b><br>
+        ✔ Preferred for comfort & design<br>
+        ✔ Appreciated for fabric quality<br>
+        ✔ Suitable for festive and casual wear
+      </div>
+
+      <button class="order" style="width:100%;margin-top:10px;" onclick="goOrderFromModal()">
+        Proceed to Order
+      </button>
     </div>
   </div>
 </div>
@@ -233,7 +240,7 @@ function openModal(img,title,price,rating,desc){
   mRating.innerText = rating;
   mDesc.innerText = desc;
 
-  modalProduct = {img,title,price:price.replace('₹','')};
+  modalProduct = {img,title,price:price.replace('₹',''), category:'Kurta'};
 }
 
 function closeModal(){
@@ -245,7 +252,7 @@ function goOrderFromModal(){
     modalProduct.img,
     modalProduct.title,
     modalProduct.price,
-    'Shirt'
+    modalProduct.category
   );
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shirts Collection</title>
+<title>Sewing Tool Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -48,7 +48,6 @@ button{
 .order{background:#fb641b;}
 .seen{background:#2874f0;}
 
-/* MODAL */
 .modal{
   display:none;
   position:fixed;
@@ -79,6 +78,14 @@ button{
   color:#fff;
   cursor:pointer;
 }
+.feedback{
+  margin-top:12px;
+  font-size:13px;
+  background:#f7f7f7;
+  padding:10px;
+  border-radius:6px;
+  line-height:1.6;
+}
 </style>
 </head>
 
@@ -94,21 +101,18 @@ button{
   <img src="Swing Tool/Buttons.jpg">
   <h3>Buttons</h3>
   <div class="stars">★★★★☆</div>
-  <div class="price">₹699</div>
+  <div class="price">₹99</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      699,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Swing Tool/Buttons.jpg','Buttons',99,'Sewing Tool')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      '₹699',
+      'Swing Tool/Buttons.jpg',
+      'Buttons',
+      '₹99',
       '★★★★☆',
-      'Soft cotton shirt perfect for daily wear.'
+      'Durable and finely crafted buttons suitable for various sewing and garment needs.'
     )">Seen</button>
   </div>
 </div>
@@ -116,96 +120,68 @@ button{
 <!-- PRODUCT 2 -->
 <div class="card">
   <img src="Swing Tool/Dhaga.jpg">
-  <h3>Dhaga</h3>
+  <h3>Dhaga (Thread)</h3>
   <div class="stars">★★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹149</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Swing Tool/Dhaga.jpg','Dhaga (Thread)',149,'Sewing Tool')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      '₹799',
+      'Swing Tool/Dhaga.jpg',
+      'Dhaga (Thread)',
+      '₹149',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'High-quality sewing thread offering strength, smoothness, and long-lasting performance.'
     )">Seen</button>
   </div>
 </div>
+
 <!-- PRODUCT 3 -->
 <div class="card">
   <img src="Swing Tool/Ribbon.jpg">
   <h3>Ribbon</h3>
   <div class="stars">★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹129</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Swing Tool/Ribbon.jpg','Ribbon',129,'Sewing Tool')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Swing Tool/Ribbon.jpg',
+      'Ribbon',
+      '₹129',
+      '★★★★',
+      'Decorative ribbon ideal for garment designing, craft projects, and creative stitching.'
     )">Seen</button>
   </div>
 </div>
+
 <!-- PRODUCT 4 -->
 <div class="card">
   <img src="Swing Tool/Sewing Sui.jpg">
-  <h3>Sewing Sui</h3>
+  <h3>Sewing Needle (Sui)</h3>
   <div class="stars">★★★★★</div>
-  <div class="price">₹799</div>
+  <div class="price">₹79</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Swing Tool/Sewing Sui.jpg','Sewing Needle',79,'Sewing Tool')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      '₹799',
+      'Swing Tool/Sewing Sui.jpg',
+      'Sewing Needle',
+      '₹79',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
+      'Precision-crafted sewing needles designed for smooth stitching and reliable use.'
     )">Seen</button>
   </div>
 </div>
-<!-- PRODUCT 5 -->
-<!-- <div class="card">
-  <img src="Kurta/straight kurta.jpg">
-  <h3>straight kurta</h3>
-  <div class="stars">★★★★★</div>
-  <div class="price">₹799</div>
-  <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
 
-    <button class="seen" onclick="openModal(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
-  </div>
 </div>
-</div> -->
+</div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
@@ -217,7 +193,17 @@ button{
       <div class="stars" id="mRating"></div>
       <h3 id="mPrice"></h3>
       <p id="mDesc"></p>
-      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+
+      <div class="feedback">
+        <b>Customer Insights</b><br>
+        ✔ Essential for tailoring & stitching<br>
+        ✔ Preferred for durability & quality<br>
+        ✔ Suitable for household and professional use
+      </div>
+
+      <button class="order" style="width:100%;margin-top:10px;" onclick="goOrderFromModal()">
+        Proceed to Order
+      </button>
     </div>
   </div>
 </div>
@@ -245,7 +231,7 @@ function goOrderFromModal(){
     modalProduct.img,
     modalProduct.title,
     modalProduct.price,
-    'Shirt'
+    'Sewing Tool'
   );
 }
 

@@ -5,80 +5,102 @@
     <meta charset="UTF-8">
 
     <style>
-       .container{
-        border: aqua 10px solid;
-       }
-        body{
-            font-family: Arial, sans-serif;
-            background:#f2f5f9;
-            padding:20px;
-        }
-        .ram{
-          background-color:black;
-        }
+body{
+    font-family: Arial, sans-serif;
+    background:#eef2f7;
+    padding:20px;
+}
+
         .container{
             max-width:700px;
-            background:#fff;
-            background-color: 	#ffc0cb;
-            
+            background:#ffffff;
             margin:auto;
             padding:25px;
-            border-radius:10px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            border-radius:12px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.08);
+            border:1px solid #e5e9f2;
         }
+
         h2{
             text-align:center;
-            color: blue;
-            
+            color:#1f2d3d;   /* Elegant dark heading */
         }
+
         h3{
-            color:#333;
-            border-bottom:2px solid #e0e0e0;
-            padding-bottom:5px;
+            color:#34495e;
+            border-bottom:2px solid #edf0f5;
+            padding-bottom:6px;
             margin-top:25px;
         }
+
         label{
             font-weight:bold;
             font-size:14px;
+            color:#2c3e50;
         }
+
         input[type="text"],
         input[type="date"],
         textarea{
             width:100%;
             padding:10px;
             margin-top:5px;
-            border:1px solid #ccc;
-            border-radius:6px;
+            border:1px solid #d6deeb;
+            border-radius:8px;
+            background:#f9fbff;
         }
+
+        input:focus, textarea:focus{
+            outline:none;
+            border-color:#2874f0;
+            background:#ffffff;
+        }
+
         textarea{
             resize:none;
             height:70px;
         }
+
         .radio-group{
             margin-top:8px;
+            color:#2c3e50;
+            font-size:14px;
         }
-        .radio-group input{
-            margin-right:5px;
-        }
+
         .product-box{
-            background:#f8f9ff;
+            background:#f7f9fc;
             padding:15px;
-            border-radius:8px;
-            border:1px solid #dbe2ff;
+            border-radius:10px;
+            border:1px solid #dde5f3;
+            display:flex;
+            gap:15px;
+            align-items:center;
         }
+
+        .product-box img{
+            width:90px;
+            height:90px;
+            object-fit:cover;
+            border-radius:8px;
+            border:1px solid #dcdcdc;
+            background:#fff;
+        }
+
         .submit-btn{
             width:100%;
-            padding:12px;
-            background:turquoise;
+            padding:13px;
+            background:#fb641b;
             color:#fff;
             border:none;
-            border-radius:8px;
+            border-radius:10px;
             font-size:16px;
             cursor:pointer;
             margin-top:20px;
+            font-weight:bold;
         }
+
         .submit-btn:hover{
-            background:#125ea8;
+            background:#e85b19;
         }
     </style>
 </head>
@@ -86,13 +108,10 @@
 <body>
 
 <div class="container">
-  
 
 <h2>Place Your Order</h2>
 
 <form method="POST" action="register.php">
-
-    <!-- ================= CUSTOMER DETAILS ================= -->
 
     <h3>Customer Details</h3>
 
@@ -105,20 +124,20 @@
     <label>Address</label>
     <textarea name="address" required></textarea>
 
-    <!-- ================= PRODUCT DETAILS (AUTO / HIDDEN) ================= -->
-
     <input type="hidden" id="product_name" name="product_name">
     <input type="hidden" id="category" name="category">
     <input type="hidden" id="price" name="price">
+    <input type="hidden" id="img" name="img">
 
     <h3>Selected Product</h3>
     <div class="product-box">
-        <p><b>Product:</b> Shirt</p>
-        <p><b>Category:</b> Men</p>
-        <p><b>Price:</b> ₹699</p>
+        <img id="pImg">
+        <div>
+            <p><b>Product:</b> <span id="pName"></span></p>
+            <p><b>Category:</b> <span id="pCategory"></span></p>
+            <p><b>Price:</b> ₹<span id="pPrice"></span></p>
+        </div>
     </div>
-
-    <!-- ================= MEASUREMENT ================= -->
 
     <h3>Measurement Details</h3>
 
@@ -134,14 +153,10 @@
     <label>Measurement Date (if visit required)</label>
     <input type="date" name="measurement_date">
 
-    <!-- ================= DELIVERY ================= -->
-
     <h3>Delivery</h3>
 
     <label>Expected Delivery Date</label>
     <input type="date" name="delivery_date" required>
-
-    <!-- ================= PAYMENT ================= -->
 
     <h3>Payment Method</h3>
 
@@ -151,8 +166,6 @@
         <input type="radio" name="payment_method" value="Paytm"> Paytm  
         <input type="radio" name="payment_method" value="Card"> Card  
     </div>
-
-    <!-- ================= SUBMIT ================= -->
 
     <input type="submit" name="submit" value="Place Order" class="submit-btn">
 
@@ -164,9 +177,21 @@
 const params = new URLSearchParams(window.location.search);
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("product_name").value = params.get("product") || "";
-  document.getElementById("category").value = params.get("category") || "";
-  document.getElementById("price").value = params.get("price") || "";
+
+  const img = params.get("img");
+  const name = params.get("name");
+  const price = params.get("price");
+  const category = params.get("category");
+
+  document.getElementById("product_name").value = name || "";
+  document.getElementById("category").value = category || "";
+  document.getElementById("price").value = price || "";
+  document.getElementById("img").value = img || "";
+
+  document.getElementById("pImg").src = img || "";
+  document.getElementById("pName").innerText = name || "";
+  document.getElementById("pCategory").innerText = category || "";
+  document.getElementById("pPrice").innerText = price || "";
 });
 </script>
 

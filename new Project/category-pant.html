@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shirts Collection</title>
+<title>Pants Collection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -79,6 +79,14 @@ button{
   color:#fff;
   cursor:pointer;
 }
+.feedback{
+  margin-top:12px;
+  font-size:13px;
+  background:#f7f7f7;
+  padding:10px;
+  border-radius:6px;
+  line-height:1.6;
+}
 </style>
 </head>
 
@@ -96,20 +104,17 @@ button{
   <div class="stars">★★★★☆</div>
   <div class="price">₹699</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
-      699,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Pants/Bootcut Pants.jpg','Bootcut Pants',699,'Pants')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Casual Shirt.jpeg',
-      'Casual Cotton Shirt',
+      'Pants/Bootcut Pants.jpg',
+      'Bootcut Pants',
       '₹699',
       '★★★★☆',
-      'Soft cotton shirt perfect for daily wear.'
-    )">Seen</button>
+      'Featuring a balanced silhouette, these bootcut pants provide comfort and a timeless fashion appeal.'
+    )">View Details</button>
   </div>
 </div>
 
@@ -120,45 +125,41 @@ button{
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Pants/Formal Pants.jpg','Formal Pants',799,'Pants')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Formal Shirt.jpg',
-      'Formal Office Shirt',
+      'Pants/Formal Pants.jpg',
+      'Formal Pants',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Designed for a refined professional look, these formal pants deliver superior fabric quality and elegance.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 3 -->
 <div class="card">
   <img src="Pants/Skinny Pants.jpg">
   <h3>Skinny Pants</h3>
-  <div class="stars">★★★★</div>
+  <div class="stars">★★★★☆</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Pants/Skinny Pants.jpg','Skinny Pants',799,'Pants')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Utlity shirts.jpg',
-      'Formal Office Shirt',
+      'Pants/Skinny Pants.jpg',
+      'Skinny Pants',
       '₹799',
-      '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      '★★★★☆',
+      'A modern slim-fit design offering a sharp appearance while maintaining everyday comfort.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 4 -->
 <div class="card">
   <img src="Pants/Straight Leg Pants.jpg">
@@ -166,22 +167,20 @@ button{
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Pants/Straight Leg Pants.jpg','Straight Leg Pants',799,'Pants')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/Summer Shirts.jpg',
-      'Formal Office Shirt',
+      'Pants/Straight Leg Pants.jpg',
+      'Straight Leg Pants',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Classic straight-leg construction ideal for versatile styling and long-lasting comfort.'
+    )">View Details</button>
   </div>
 </div>
+
 <!-- PRODUCT 5 -->
 <div class="card">
   <img src="Pants/Wide Leg Pants.jpg">
@@ -189,22 +188,20 @@ button{
   <div class="stars">★★★★★</div>
   <div class="price">₹799</div>
   <div class="btns">
-    <button class="order" onclick="orderNow(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
-      799,
-      'Shirt'
-    )">Order Now</button>
+    <button class="order" onclick="orderNow('Pants/Wide Leg Pants.jpg','Wide Leg Pants',799,'Pants')">
+      Order Now
+    </button>
 
     <button class="seen" onclick="openModal(
-      'Shirt/121.jpg',
-      'Formal Office Shirt',
+      'Pants/Wide Leg Pants.jpg',
+      'Wide Leg Pants',
       '₹799',
       '★★★★★',
-      'Premium formal shirt for office & meetings.'
-    )">Seen</button>
+      'Wide-leg design ensuring enhanced comfort, breathability, and a contemporary visual appeal.'
+    )">View Details</button>
   </div>
 </div>
+
 </div>
 
 <!-- MODAL -->
@@ -217,7 +214,17 @@ button{
       <div class="stars" id="mRating"></div>
       <h3 id="mPrice"></h3>
       <p id="mDesc"></p>
-      <button class="order" style="width:100%;" onclick="goOrderFromModal()">Order Now</button>
+
+      <div class="feedback">
+        <b>Customer Insights</b><br>
+        ✔ Highly rated by customers<br>
+        ✔ Appreciated for comfort & fit<br>
+        ✔ Suitable for daily and formal wear
+      </div>
+
+      <button class="order" style="width:100%;margin-top:10px;" onclick="goOrderFromModal()">
+        Proceed to Order
+      </button>
     </div>
   </div>
 </div>
@@ -233,7 +240,7 @@ function openModal(img,title,price,rating,desc){
   mRating.innerText = rating;
   mDesc.innerText = desc;
 
-  modalProduct = {img,title,price:price.replace('₹','')};
+  modalProduct = {img,title,price:price.replace('₹',''), category:'Pants'};
 }
 
 function closeModal(){
@@ -245,7 +252,7 @@ function goOrderFromModal(){
     modalProduct.img,
     modalProduct.title,
     modalProduct.price,
-    'Shirt'
+    modalProduct.category
   );
 }
 
