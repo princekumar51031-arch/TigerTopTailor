@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Status</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#eef2f7;
+}
+
+.container{
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+h2{
+    text-align:center;
+    color:#1f2d3d;
+    margin-bottom:25px;
+}
+
+.step{
+    display:flex;
+    align-items:center;
+    margin:12px 0;
+    font-size:15px;
+    padding:10px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.circle{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    margin-right:12px;
+    flex-shrink:0;
+}
+
+.completed{
+    background:#2ecc71;
+    color:#2ecc71;
+}
+
+.active{
+    background:#2874f0;
+    color:#2874f0;
+}
+
+.pending{
+    background:#bdc3c7;
+    color:#bdc3c7;
+}
+
+.step span{
+    color:#2c3e50;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    margin-top:25px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.cancel{
+    background:#e74c3c;
+    color:white;
+}
+
+.cancel:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+.note{
+    text-align:center;
+    font-size:12px;
+    color:#777;
+    margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Track Your Tailoring Order</h2>
+
+<div id="steps"></div>
+
+<button class="cancel" id="cancelBtn">Cancel Order</button>
+<div class="note">Cancellation allowed within 24 hours</div>
+
+</div>
+
+<script>
+
+const orderKey = "tailorOrder";
+
+/* Realistic stages */
+const stages = [
+  "Order Placed",
+  "Measurement Confirmed",
+  "Cutting Process",
+  "Sewing in Progress",
+  "Quality Check",
+  "Ready for Delivery",
+  "Out for Delivery",
+  "Delivered"
+];
+
+/* Demo order create */
+if(!localStorage.getItem(orderKey)){
+    localStorage.setItem(orderKey, JSON.stringify({
+        stage: 0,
+        time: Date.now()
+    }));
+}
+
+let order = JSON.parse(localStorage.getItem(orderKey));
+
+const stepsDiv = document.getElementById("steps");
+const cancelBtn = document.getElementById("cancelBtn");
+
+/* Render steps */
+function renderSteps(){
+
+    stepsDiv.innerHTML = "";
+
+    stages.forEach((name, index) => {
+
+        let stateClass = "pending";
+
+        if(index < order.stage) stateClass = "completed";
+        if(index === order.stage) stateClass = "active";
+
+        const row = document.createElement("div");
+        row.className = "step";
+
+        row.innerHTML = `
+            <div class="circle ${stateClass}"></div>
+            <span>${name}</span>
+        `;
+
+        stepsDiv.appendChild(row);
+    });
+}
+
+/* Cancel logic */
+const hoursPassed = (Date.now() - order.time) / (1000 * 60 * 60);
+
+if(hoursPassed > 24 || order.stage >= stages.length - 1){
+    cancelBtn.disabled = true;
+    cancelBtn.innerText = "Cancellation Closed";
+}
+
+/* Cancel action */
+cancelBtn.onclick = () => {
+    if(confirm("Cancel this order?")){
+        order.stage = -1;
+        localStorage.setItem(orderKey, JSON.stringify(order));
+        location.reload();
+    }
+};
+
+/* Special cancelled UI */
+if(order.stage === -1){
+    stepsDiv.innerHTML = "<h3 style='color:red;text-align:center'>Order Cancelled</h3>";
+    cancelBtn.style.display = "none";
+}
+else{
+    renderSteps();
+}
+
+/* AUTO DEMO PROGRESS (for testing feel) */
+/* Har refresh pe next stage 😏 */
+if(order.stage >= 0 && order.stage < stages.length - 1){
+    order.stage++;
+    localStorage.setItem(orderKey, JSON.stringify(order));
+}
+
+</script>
+
+</body>
+</html>

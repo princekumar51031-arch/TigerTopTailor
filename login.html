@@ -6,89 +6,80 @@
 <title>Tiger Top Tailor - Login</title>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-  .container {
-    width: 350px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-  }
+.container {
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  background:white;
+}
 
-  .logo {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #000;
-  }
+.logo {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #000;
+}
 
-  .logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-  }
+h2 { margin-bottom: 15px; }
 
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    border: none;
-    background: #ff9800;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #fb641b;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-  button:hover {
-    background: #e68900;
-  }
+button:hover { background: #e85b19; }
 
-  .signup-link {
-    margin-top: 15px;
-    display: block;
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+.hidden { display: none; }
 
-  .hidden {
-    display: none;
-  }
+.account-btn{
+  margin-top:15px;
+  background:#2874f0;
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN BOX (PURANA SAME) -->
+<!-- LOGIN -->
 <div class="container" id="loginBox">
   <div class="logo">
-    <img src="2945983.png" alt="Tiger Top Tailor">
+    <img src="2945983.png">
   </div>
 
   <h2>Login</h2>
@@ -101,21 +92,21 @@
     <button id="verifyOtpBtn">Verify OTP</button>
   </div>
 
-  <!-- 🔥 NEW: NAME SECTION -->
   <div id="nameSection" class="hidden">
     <input type="text" id="username" placeholder="Enter Your Name">
     <button id="saveNameBtn">Continue</button>
   </div>
-
 </div>
 
-<!-- 🔥 NEW: DASHBOARD -->
+<!-- DASHBOARD -->
 <div class="container hidden" id="dashboard">
   <div class="logo">
     <img src="2945983.png">
   </div>
+
   <h2 id="welcomeText"></h2>
-  <p>Welcome to Tiger Top Tailor Dashboard</p>
+
+  <button class="account-btn" onclick="openAccount()">My Account</button>
 </div>
 
 <script>
@@ -133,7 +124,12 @@ const sendBtn = document.getElementById("sendOtpBtn");
 const verifyBtn = document.getElementById("verifyOtpBtn");
 const saveNameBtn = document.getElementById("saveNameBtn");
 
-// SEND OTP (SAME)
+/* AUTO LOGIN IF NAME EXISTS */
+const savedName = localStorage.getItem("ttt_name");
+if(savedName){
+  showDashboard(savedName);
+}
+
 sendBtn.addEventListener("click", () => {
   const mobile = document.getElementById("mobile").value.trim();
   if(mobile.length !== 10){
@@ -153,7 +149,6 @@ sendBtn.addEventListener("click", () => {
     });
 });
 
-// VERIFY OTP (UPDATED)
 verifyBtn.addEventListener("click", () => {
   const otp = document.getElementById("otp").value.trim();
 
@@ -164,7 +159,7 @@ verifyBtn.addEventListener("click", () => {
         const savedName = localStorage.getItem("ttt_name");
         if(savedName){
           showDashboard(savedName);
-        }else{
+        } else {
           nameSection.classList.remove("hidden");
         }
       } else {
@@ -173,7 +168,6 @@ verifyBtn.addEventListener("click", () => {
     });
 });
 
-// SAVE NAME
 saveNameBtn.addEventListener("click", () => {
   const name = document.getElementById("username").value.trim();
   if(!name){
@@ -181,13 +175,19 @@ saveNameBtn.addEventListener("click", () => {
     return;
   }
 
-  // Save name
   localStorage.setItem("ttt_name", name);
-
-  // 🔥 Redirect to main dashboard
-  window.location.href = "index.html";
+  showDashboard(name);
 });
 
+function showDashboard(name){
+  loginBox.classList.add("hidden");
+  dashboard.classList.remove("hidden");
+  welcomeText.innerText = "Welcome, " + name;
+}
+
+function openAccount(){
+  window.location.href = "account.html";
+}
 </script>
 
 </body>
